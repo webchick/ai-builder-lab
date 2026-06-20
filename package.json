@@ -1,0 +1,26 @@
+{
+  "name": "ai-builder-lab",
+  "version": "1.0.0",
+  "description": "A place to stick all my fun AI projects",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webchick/ai-builder-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webchick/ai-builder-lab/issues"
+  },
+  "homepage": "https://github.com/webchick/ai-builder-lab#readme",
+  "dependencies": {
+    "astro": "^6.4.8"
+  }
+}

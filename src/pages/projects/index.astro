@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects'))
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Projects | AI Builder Lab" description="All AI experiments and prototypes">
+  <section class="hero">
+    <h1>Projects</h1>
+    <p>Everything in the lab, newest first.</p>
+  </section>
+
+  <div class="project-grid">
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
+  </div>
+</BaseLayout>

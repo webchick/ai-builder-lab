@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects'))
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const featured = projects.filter((project) => project.data.featured);
+---
+
+<BaseLayout title="AI Builder Lab">
+  <section class="hero">
+    <h1>Experiments in AI building</h1>
+    <p>
+      Notes, prototypes, and write-ups from tinkering with agents, models, and tools.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Featured projects</h2>
+    <div class="project-grid">
+      {featured.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
